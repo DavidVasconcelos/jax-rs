@@ -42,11 +42,11 @@ public class ClientTest {
 	}
 	
 	@Test
-	public void testaQueBuscaUmCarrinhoTrazEsperador () {
+	public void testaQueBuscaUmCarrinhoTrazEsperado () {
 		
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target("http://localhost:8080");
-		String conteudo = target.path("/carrinhos").request().get(String.class);
+		String conteudo = target.path("/carrinhos/1").request().get(String.class);
 		Carrinho carrinho = (Carrinho) new XStream().fromXML(conteudo);
 		assertEquals("Rua Vergueiro 3185, 8 andar", carrinho.getRua());
 		
@@ -56,18 +56,18 @@ public class ClientTest {
     public void testaQueAConexaoComOServidorFuncionaNoPathDeProjetos() {
         Client client = ClientBuilder.newClient();
         WebTarget target = client.target("http://localhost:8080");
-        String conteudo = target.path("/projetos").request().get(String.class);
+        String conteudo = target.path("/projetos/1").request().get(String.class);
         Assert.assertTrue(conteudo.contains("<nome>Minha loja"));
 
 
     }
 	
 	@Test
-	public void testaQueBuscaUmProjetoTrazEsperador () {
+	public void testaQueBuscaUmProjetoTrazEsperado () {
 		
 		Client client = ClientBuilder.newClient();
 		WebTarget target = client.target("http://localhost:8080");
-		String conteudo = target.path("/projetos").request().get(String.class);
+		String conteudo = target.path("/projetos/1").request().get(String.class);
 		Projeto projeto = (Projeto) new XStream().fromXML(conteudo);
 		assertEquals("Minha loja", projeto.getNome());
 		
