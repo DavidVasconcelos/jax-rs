@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 import br.com.alura.loja.modelo.Carrinho;
+import br.com.alura.loja.modelo.Model;
 import br.com.alura.loja.modelo.Produto;
 
 public class CarrinhoDAO {
@@ -29,11 +30,11 @@ public class CarrinhoDAO {
 		banco.put(id, carrinho);
 	}
 	
-	public Carrinho busca(Long id) {
+	public Model busca(Long id) {
 		return banco.get(id);
 	}
 	
-	public Carrinho remove(long id) {
+	public Model remove(long id) {
 		return banco.remove(id);
 	}
 
