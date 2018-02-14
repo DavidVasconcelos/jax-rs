@@ -1,7 +1,7 @@
 package br.com.alura.loja.modelo;
 
 
-public class Produto {
+public class Produto extends Model{
 
 	private double preco;
 	private long id;
@@ -12,6 +12,11 @@ public class Produto {
 		this.id = id;
 		this.nome = nome;
 		this.preco = preco;
+		this.quantidade = quantidade;
+	}
+	
+	public Produto(long id, int quantidade) {
+		this.id = id;		
 		this.quantidade = quantidade;
 	}
 

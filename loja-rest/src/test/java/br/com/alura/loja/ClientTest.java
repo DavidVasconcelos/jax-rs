@@ -106,5 +106,20 @@ public class ClientTest {
 		Assert.assertEquals(200, response.getStatus());
 
 	}
+	
+	@Test
+	public void testaAlteraProdutoCarrinhoViaPut() {
+
+		this.target = client.target("http://localhost:8080");
+		Produto produto = new Produto(3467L,5);
+		
+		String xml = produto.toXML();
+
+		Entity<String> entity = Entity.entity(xml, MediaType.APPLICATION_XML);
+
+		Response response = target.path("/carrinhos/1/produtos/3467/quantidade").request().put(entity);
+		Assert.assertEquals(200, response.getStatus());
+
+	}
 
 }
