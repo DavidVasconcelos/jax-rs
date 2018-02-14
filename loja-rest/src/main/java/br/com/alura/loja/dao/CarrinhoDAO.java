@@ -30,11 +30,11 @@ public class CarrinhoDAO {
 		banco.put(id, carrinho);
 	}
 	
-	public Model busca(Long id) {
+	public Carrinho busca(Long id) {
 		return banco.get(id);
 	}
 	
-	public Model remove(long id) {
+	public Carrinho remove(long id) {
 		return banco.remove(id);
 	}
 
